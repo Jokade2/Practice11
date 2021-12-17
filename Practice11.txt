@@ -1,0 +1,58 @@
+Задание 1 и 2:
+
+lst=[1,9,13,10,4,7,8]
+
+def b_sort(lst):
+    for i in range(len(lst)):
+        for j in range(len(lst)-i-1):
+            if(lst[j]>lst[j+1]):
+                lst[j],lst[j+1]=lst[j+1],lst[j]
+    return array
+
+
+print(b_sort(lst))
+
+Сложность O(n^2)
+
+Задание 3 и 4:
+
+lst=[29,3,16,4,5,89,64,11,8,0]
+print(sorted(lst))
+def count_sort(lst):
+    m=min(lst)
+    help_array=[0 for i in range(min(lst),max(lst)+1)]
+    for item in lst:
+        help_array[item-m]+=1
+    lst.clear()
+    for item in help_array:
+        [lst.append(m) for n in range(item)]
+        m+=1
+    return lst
+
+print(count_sort(lst))
+
+Задание 5:
+
+array1,array2=[11,5,9,1],[32,5,8,10,34,22,3,15,18,1,48]
+
+def merge(x,y):
+    index_x = 0
+    index_y = 0 
+    result=[]
+    while(index_x!= len(x) and index_y!=len(y)):
+        if(x[index_x] < [index_y]):
+            result.append(x[index_x])
+            index_x += 1
+        else:
+            result.append(y[index_y])
+            index_y += 1
+
+    if(index_x!=len(x)):
+        result += x[index_x:]
+    else:
+        result += y[index_y:]
+
+    return result
+
+
+print(merge(array1,array2))
